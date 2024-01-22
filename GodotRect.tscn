@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckonxkewuc0wa"]
+
+[ext_resource type="Texture2D" uid="uid://bkvs44v0t4nwu" path="res://icon.svg" id="1_bnyg3"]
+[ext_resource type="Script" path="res://GodotRect.cs" id="1_lrlia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swbl1"]
+size = Vector2(64, 64)
+
+[node name="GodotRect" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_lrlia")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_bnyg3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_swbl1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-32, -32, 64, 64)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_screen_exited"]

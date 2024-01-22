@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd8fmk4c4noxj"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_ucrxl"]
+script/source = "using Godot;
+using System;
+
+public partial class testButton : Button
+{
+}
+"
+
+[node name="Main" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 252.0
+offset_top = 55.0
+offset_right = 369.0
+offset_bottom = 150.0
+script = SubResource("CSharpScript_ucrxl")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
